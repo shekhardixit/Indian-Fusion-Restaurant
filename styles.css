@@ -32,3 +32,14 @@ address{
 .navbar-dark{
 	background-color: #512DAB
 }
+
+.fa {
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    width: 0px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 1px 5px 5px;
+    object-fit: cover;
+  }
