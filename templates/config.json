@@ -9,6 +9,8 @@
         "in_url" : "http://www.linkedin.com/in/",
         "tw_url" : "http://twitter.com/",
         "yt_url" : "http://youtube.com/",
-        "em_url" : "mailto:"
+        "em_url" : "mailto:",
+        "gmail-user" : "",
+        "gmail-pwd" : ""
     }
 }
