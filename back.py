@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -41,12 +41,12 @@ def login_page():
         entry = Login(emailid=email, password=pwd)
         db.session.add(entry)
         db.session.commit()
-    return render_template('index.html')
+    return render_template('index.html', params=params)
     
 
 @app.route('/about')
 def about():
-    return render_template('aboutus.html')
+    return render_template('aboutus.html', params=params)
 
 @app.route('/contact', methods=["GET","POST"])
 def contact_page():
@@ -63,7 +63,7 @@ def contact_page():
         entry = Contact(cfname=fname, clname=lname, ctcode=tcode, ctnum=tnum, cemail=email, cfeedback=feedback)
         db.session.add(entry)
         db.session.commit()
-    return render_template('contactus.html')
+    return render_template('contactus.html', params=params)
 
 app.run(debug=True)
     
