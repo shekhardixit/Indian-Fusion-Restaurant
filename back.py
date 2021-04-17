@@ -1,16 +1,23 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+import json
 
+with open('config.json', 'r') as c:
+    params = json.load(c)["params"]
+local_server = True
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/ristoranteb4'
+if local_server:
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
 db = SQLAlchemy(app)
 
 class Login(db.Model):
     __tablename__ = "login"
     sno = db.Column(db.Integer(), primary_key=True)
     emailid = db.Column(db.String(30), nullable=False)
-    password = db.Column(db.String(10), nullable=False)
+    password = db.Column(db.String(10), nullable=False)  
 
 class Contact(db.Model):
     __tablename__ = "contact"
@@ -41,8 +48,7 @@ def login_page():
 def about():
     return render_template('aboutus.html')
 
-@app.route('/contact', methods=["GET","POST"]
-)
+@app.route('/contact', methods=["GET","POST"])
 def contact_page():
     if (request.method == "POST"):
     	#Fetch entry for database(fetching_data_name= input_name_in_htmlcode)
