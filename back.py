@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_mail import Mail
 import json
 
 with open('config.json', 'r') as c:
@@ -8,18 +7,7 @@ with open('config.json', 'r') as c:
 local_server = True
 
 app = Flask(__name__)
-app.config.update(
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = '465',
-    MAIL_USE_SSL = True,
-    MAIL_USERNAME = params['gmail-user'],
-    MAIL_PASSWORD = params['gmail-pwd']
-)
-mail = Mail(app)
-if local_server:
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
+
 db = SQLAlchemy(app)
 
 class Login(db.Model):
