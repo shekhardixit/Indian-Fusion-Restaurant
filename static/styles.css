@@ -106,3 +106,12 @@ height: 300px;
   bottom: 0px;
   z-index: 1;
 }
+.modal-header{
+	background-color: #512DAB;
+	color:#FFFFFF;
+	
+}
+
+.modal-body{
+	background: #cc99ff ;
+}
