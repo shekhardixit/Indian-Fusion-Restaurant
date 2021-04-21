@@ -1,6 +1,7 @@
 # pylint: disable=no-member
 from flask import Flask, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 import json
 
 with open('config.json', 'r') as c:
@@ -29,6 +30,7 @@ class Contact(db.Model):
     ctnum = db.Column(db.Integer(), primary_key=True)
     cemail = db.Column(db.String(30), nullable=False)
     cfeedback = db.Column(db.String(300), nullable=False)
+    fdate = db.Column(db.String(12), nullable=True)
     
 
 @app.route("/", methods=["GET","POST"])
@@ -67,9 +69,10 @@ def contact_page():
         
     return render_template('contactus.html', params=params)
 
-@app.route("/review")
+@app.route("/review", methods=["GET"])
 def reviewus_page():
-    return render_template('review.html', params=params)
+    review = Contact.query.filter_by(cid=1).first()
+    return render_template('review.html', params=params, review=review)
 
 app.run(debug=True)
     
