@@ -67,5 +67,9 @@ def contact_page():
         
     return render_template('contactus.html', params=params)
 
+@app.route("/review")
+def reviewus_page():
+    return render_template('review.html', params=params)
+
 app.run(debug=True)
     
