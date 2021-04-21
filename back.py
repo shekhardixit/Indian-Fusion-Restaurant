@@ -1,13 +1,17 @@
+# pylint: disable=no-member
 from flask import Flask, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 import json
 
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
+
 local_server = True
-
 app = Flask(__name__)
-
+if(local_server):
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
 db = SQLAlchemy(app)
 
 class Login(db.Model):
@@ -60,12 +64,7 @@ def contact_page():
         entry = Contact(cfname=fname, clname=lname, ctcode=tcode, ctnum=tnum, cemail=email, cfeedback=feedback)
         db.session.add(entry)
         db.session.commit()
-        mail.send_message(
-            'New message from '+ fname + " " +lname, 
-            sender=email, 
-            recipients=[params['gmail-user']], 
-            body=feedback + "\n" + tcode +" "+tnum
-            )
+        
     return render_template('contactus.html', params=params)
 
 app.run(debug=True)

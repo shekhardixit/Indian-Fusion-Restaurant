@@ -115,3 +115,7 @@ height: 300px;
 .modal-body{
 	background: #cc99ff ;
 }
+
+.modal-content{
+  top: calc(100vh - 70vh) !important;
+}
