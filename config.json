@@ -11,6 +11,7 @@
         "yt_url" : "http://youtube.com/",
         "em_url" : "mailto:",
         "gmail-user" : "",
-        "gmail-pwd" : ""
+        "gmail-pwd" : "",
+        "no_of_posts": 3
     }
 }
