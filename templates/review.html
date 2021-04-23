@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="node_modules/bootstrap-social/css/bootstrap-social.css">
 	<link rel="stylesheet" href="static/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<title>Ristorante Con Fusion: Reviews</title>
+	<title>{{params['title']}}: Reviews</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-		<a class="navbar-brand" href="/">Ristorante con Fusion</a>
+		<a class="navbar-brand" href="/">{{params['title']}}</a>
 		<div class="collapse navbar-collapse" id="Navbar">
 		<ul class="navbar-nav mr-auto">
 		<li class="nav-item"><a class="nav-link" href="/"><span class="fa fa-home fa-lg"></span> Home</a></li>
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
-                    <h1>Ristorante con Fusion</h1>
+                    <h1>{{params['title']}}</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
                 <div class="col-12 col-sm">
@@ -73,7 +73,7 @@
                         </blockquote>
                     </div>
                 </div>
-                <div class="col-12 col-sm-4 order-sm-first mb-3 rem">
+                <div class="col-12 col-sm-4 order-sm-first">
                     <div class="card">
                         <h3 class="card-header bg-info">Experience (Photos)</h3>
                         <div class="card-body">
@@ -99,7 +99,7 @@
                         </blockquote>
                     </div>
                 </div>
-                <div class="col-12 col-sm-4 order-sm-last mb-3 rem">
+                <div class="col-12 col-sm-4 order-sm-last">
                     <div class="card">
                         <h3 class="card-header bg-info">Experience (Photos)</h3>
                         <div class="card-body">
@@ -153,7 +153,7 @@
            </div>
            <div class="row justify-content-center">             
                 <div class="col-auto">
-                    <p>© Copyright 2020 Ristorante Con Fusion</p>
+                    <p>© Copyright 2020 {{params['title']}}</p>
                 </div>
             </div>           
         </div>

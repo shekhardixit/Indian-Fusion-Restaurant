@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="node_modules/bootstrap-social/css/bootstrap-social.css">
 	<link rel="stylesheet" href="static/styles.css">
-	<title>Ristorante Con Fusion: Home</title>
+	<title>{{params['title']}}: Home</title>
 </head>
 
 <body>
@@ -140,7 +140,7 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
-                    <h1>Ristorante con Fusion</h1>
+                    <h1>{{params['title']}}</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
 
@@ -318,7 +318,7 @@
            </div>
            <div class="row justify-content-center">             
                 <div class="col-auto">
-                    <p>© Copyright 2020 Ristorante Con Fusion</p>
+                    <p>© Copyright 2020 {{params['title']}}</p>
                 </div>
            </div>
         </div>

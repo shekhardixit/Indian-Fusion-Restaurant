@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="node_modules/bootstrap-social/css/bootstrap-social.css">
 	<link rel="stylesheet" href="static/styles.css">
-	<title>Ristorante Con Fusion: About Us</title>
+	<title>{{params['title']}}: About Us</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-		<a class="navbar-brand" href="/">Ristorante con Fusion</a>
+		<a class="navbar-brand" href="/">{{params['title']}}</a>
 		<div class="collapse navbar-collapse" id="Navbar">
 		<ul class="navbar-nav mr-auto">
 		<li class="nav-item"><a class="nav-link" href="/"><span class="fa fa-home fa-lg"></span> Home</a></li>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
-                    <h1>Ristorante con Fusion</h1>
+                    <h1>{{params['title']}}</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
                 <div class="col-12 col-sm">
@@ -60,7 +60,7 @@
         <div class="row row-content">
             <div class="col-12 col-sm-6">
                 <h2>Our History</h2>
-                <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
+                <p>Started in 2010, {{params['title']}} quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
                 <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
             </div>
 
@@ -233,7 +233,7 @@
            </div>
            <div class="row justify-content-center">             
                 <div class="col-auto">
-                    <p>© Copyright 2020 Ristorante Con Fusion</p>
+                    <p>© Copyright 2020 {{params['title']}}</p>
                 </div>
             </div>           
         </div>
