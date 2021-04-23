@@ -72,7 +72,8 @@ def contact_page():
 @app.route("/review", methods=["GET"])
 def reviewus_page():
     reviews = Contact.query.filter_by().all()[0:params['no_of_posts']]
-    return render_template('review.html', params=params, reviews=reviews)
+    cnt = len(reviews)
+    return render_template('review.html', params=params, reviews=reviews, cnt=cnt)
 
 app.run(debug=True)
     

@@ -57,49 +57,23 @@
                 </div>
         </div>
 
-        <div class="row row-content">
-            {% set cnt = 0 %}
-            {% for review in reviews %} 
-                {%set cnt = cnt + 1%} 
-                <div class="col-12 col-sm-8">
-                    {% if cnt%2 !=0 %}
-                        <div class="card card-body bg-light order-sm-first">
-                            <blockquote class="blockquote">
-                                <p class="mb-0 pb-0"><strong>{{review.cfname+" "+review.clname}}</strong></p>
-                                <cite class="pt-0"><small><small>{{review.cemail}} &nbsp;&nbsp;&nbsp;{{review.fdate}}</small></small></cite>
-                                <footer class="blockquote-footer">
-                                    <cite title="Source Title">{{review.cfeedback[0:143]}}</cite>
-                                </footer>
-                            </blockquote>
-                        </div>
-                    {% else %}
-                        <div class="card card-body bg-light order-sm-last">
-                            <blockquote class="blockquote">
-                                <p class="mb-0 pb-0"><strong>{{review.cfname+" "+review.clname}}</strong></p>
-                                <cite class="pt-0"><small><small>{{review.cemail}} &nbsp;&nbsp;&nbsp;{{review.fdate}}</small></small></cite>
-                                <footer class="blockquote-footer">
-                                    <cite title="Source Title">{{review.cfeedback[0:143]}}</cite>
-                                </footer>
-                            </blockquote>
-                        </div>
-                    {% endif %}  
-                    
+        
+        {% for review in reviews %} 
+            {% if review.cid%2 == 0 %}
+            <div class="row row-content">
+                <div class="col-12 col-sm-8 order-sm-last">
+                    <div class="card card-body bg-light">
+                        <blockquote class="blockquote">
+                            <p class="mb-0 pb-0"><strong>{{review.cfname+" "+review.clname}}</strong></p>
+                            <cite class="pt-0"><small><small>{{review.cemail}} &nbsp;&nbsp;&nbsp;{{review.fdate}}</small></small></cite>
+                            <footer class="blockquote-footer">
+                                <cite title="Source Title">{{review.cfeedback[0:50]}}</cite>
+                            </footer>
+                        </blockquote>
+                    </div>
                 </div>
-
-                <div class="col-12 col-sm-4 mb-3 rem">
-                    {% if cnt%2 !=0 %}
-                        <div class="card order-sm-last">
-                            <h3 class="card-header bg-info">Experience (Photos)</h3>
-                            <div class="card-body">
-                                <dl class="row">
-                                    <div class="col-12 col-sm align-self-center">
-                                        <img src="static/img/logo.png" alt="feedback Photos" class="img-fluid">
-                                    </div>
-                                </dl>
-                            </div>
-                        </div>
-                    {% else %}
-                    <div class="card order-sm-first">
+                <div class="col-12 col-sm-4 order-sm-first mb-3 rem">
+                    <div class="card">
                         <h3 class="card-header bg-info">Experience (Photos)</h3>
                         <div class="card-body">
                             <dl class="row">
@@ -109,11 +83,37 @@
                             </dl>
                         </div>
                     </div>
-                    {% endif %}
                 </div>
-                <hr>  
-            {% endfor %}
-        </div>
+            </div>
+            {% else %}
+            <div class="row row-content">
+                <div class="col-12 col-sm-8 order-sm-first">
+                    <div class="card card-body bg-light">
+                        <blockquote class="blockquote">
+                            <p class="mb-0 pb-0"><strong>{{review.cfname+" "+review.clname}}</strong></p>
+                            <cite class="pt-0"><small><small>{{review.cemail}} &nbsp;&nbsp;&nbsp;{{review.fdate}}</small></small></cite>
+                            <footer class="blockquote-footer">
+                                <cite title="Source Title">{{review.cfeedback[0:100]}}</cite>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 order-sm-last mb-3 rem">
+                    <div class="card">
+                        <h3 class="card-header bg-info">Experience (Photos)</h3>
+                        <div class="card-body">
+                            <dl class="row">
+                                <div class="col-12 col-sm align-self-center">
+                                    <img src="static/img/logo.png" alt="feedback Photos" class="img-fluid">
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <hr>
+        {% endfor %}
 
     </div>
     <footer class="footer">
