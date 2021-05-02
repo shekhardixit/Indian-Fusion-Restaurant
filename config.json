@@ -13,6 +13,8 @@
         "gmail-user" : "",
         "gmail-pwd" : "",
         "no_of_posts": 4,
-        "title" : "Indian Fusion Restaurant"
+        "title" : "Indian Fusion Restaurant",
+        "admin_user" : "shivdixit26@gmail.com",
+        "admin_password" : "500067690"
     }
 }

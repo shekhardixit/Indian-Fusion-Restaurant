@@ -1,5 +1,5 @@
 # pylint: disable=no-member
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
@@ -9,6 +9,7 @@ with open('config.json', 'r') as c:
 
 local_server = True
 app = Flask(__name__)
+app.secret_key = 'super-secret-key'
 if(local_server):
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
 else:
@@ -44,6 +45,11 @@ def login_page():
         entry = Login(emailid=email, password=pwd)
         db.session.add(entry)
         db.session.commit()
+        if email==params['admin_user'] and pwd==params['admin_password']:
+            # setting session variable
+            session['user'] = email
+            session['pass'] = pwd
+            return render_template("review.html", params=params)
     return render_template('index.html', params=params)
     
 
